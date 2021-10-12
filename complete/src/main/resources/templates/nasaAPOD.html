@@ -29,9 +29,8 @@
         <!-- Page content-->
         <div class="container">
             <div class="text-center mt-5">
-                <h1>XKCD Current Comic</h1>
+                <h1>NASA Picture of the Day</h1>
                 <!-- <p th:text="'Hello, ' + ${name} + '!'" /> -->
-                <p class="lead">Most recent XKCD comic</p>
                 <!-- <p>Bootstrap v5.1.1</p> -->
                 <div class="comic">
                     <div class="d-flex justify-content-center">
@@ -49,13 +48,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script th:inline="javascript">
             $.ajax({
-                url:'https://xkcd.com/' + [[${id}]] + '/info.0.json',
+                url:'https://api.nasa.gov/planetary/apod?api_key=XzpVnBjXXURzbRwmdNQjBoNh9FXOXACCdGD8Fij5',
                 type:"GET",
                 dataType:"json",
                 success: function(data){
                     $('.comic').html(
-                        '<p class="lead">' + data.safe_title + 
-                            '</p><img src="' + data.img + '" alt="' + data.alt + '" height="300"> <p class="date">'
+                        '</p><img src="' + data.url + '"'
                     )
                 },
                 error: function(data){
