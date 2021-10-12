@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;    
 
 @Controller
 public class HelloController {
@@ -36,6 +38,9 @@ public class HelloController {
 
 	@GetMapping("/NASA")
 	public String nasaAPOD(@RequestParam(name="date", required=false) String date, Model model) {
+		if(date==null){
+			date= "";
+		}
 		model.addAttribute("date", date);
 		return "nasaAPOD";
 	}
