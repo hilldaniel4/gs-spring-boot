@@ -9,3 +9,11 @@ body h1{
 nav .navbar navbar-expand-lg navbar-dark bg-dark{
     background-color: purple;
 }
+
+.nasa{
+    max-width: 40%;
+}
+
+.explanation{
+    padding-top:20pt;
+}
